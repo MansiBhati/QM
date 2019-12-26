@@ -1,0 +1,1127 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     45016,       1117]
+NotebookOptionsPosition[     44464,       1095]
+NotebookOutlinePosition[     45037,       1116]
+CellTagsIndexPosition[     44994,       1113]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"Which", "[", 
+     RowBox[{
+      RowBox[{"view", "\[Equal]", "1"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\[Alpha]", "=", 
+        RowBox[{"1.869", "*", 
+         SuperscriptBox["10", "10"]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"d", "=", 
+        RowBox[{"4.618", "*", "1.60218", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "19"}]]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"m", "=", 
+        RowBox[{"1.627", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "27"}]]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"\[HBar]", "=", 
+        RowBox[{"1.054", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "34"}]]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"k", "=", "516.3"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"r", "=", 
+        RowBox[{"1.275", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "10"}]]}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"\[Omega]", "=", 
+        SqrtBox[
+         RowBox[{"2", "*", "d", "*", 
+          FractionBox[
+           SuperscriptBox["\[Alpha]", "2"], "m"]}]]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"xe", "=", 
+        RowBox[{"\[HBar]", "*", 
+         FractionBox["\[Omega]", 
+          RowBox[{"4", "*", "d"}]]}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Vm", "[", "R_", "]"}], ":=", " ", 
+        RowBox[{
+         RowBox[{"d", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "-", 
+             RowBox[{"Exp", "[", 
+              RowBox[{
+               RowBox[{"-", "\[Alpha]"}], "*", 
+               RowBox[{"(", 
+                RowBox[{"R", "-", "r"}], ")"}]}], "]"}]}], ")"}], "2"]}], "-",
+          "d"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Vh", "[", "R_", "]"}], ":=", " ", 
+        RowBox[{
+         RowBox[{"0.5", "*", "k", "*", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"R", "-", "r"}], ")"}], "2"]}], "-", "d"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"nmax", "=", 
+        RowBox[{"IntegerPart", "[", 
+         FractionBox[
+          SqrtBox[
+           RowBox[{"2", "*", "d", "*", "m"}]], 
+          RowBox[{"\[Alpha]", "*", "\[HBar]"}]], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"em", "[", "n_", "]"}], ":=", 
+        RowBox[{
+         RowBox[{"-", "d"}], "+", 
+         RowBox[{"\[HBar]", "*", "\[Omega]", "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"n", "+", "0.5"}], ")"}], "-", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "xe", ")"}], "*", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"n", "+", "0.5"}], ")"}], "2"]}], ")"}]}], 
+           ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R1", "[", "n_", "]"}], ":=", 
+        RowBox[{"r", "+", 
+         RowBox[{
+          FractionBox["1", "\[Alpha]"], 
+          RowBox[{"Log", "[", 
+           RowBox[{"-", 
+            FractionBox[
+             RowBox[{"d", "+", 
+              SqrtBox[
+               RowBox[{"d", 
+                RowBox[{"(", 
+                 RowBox[{"d", "+", 
+                  RowBox[{"em", "[", "n", "]"}]}], ")"}]}]]}], 
+             RowBox[{"em", "[", "n", "]"}]]}], "]"}]}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R2", "[", "n_", "]"}], ":=", 
+        RowBox[{"r", "+", 
+         RowBox[{
+          FractionBox["1", "\[Alpha]"], 
+          RowBox[{"Log", "[", 
+           RowBox[{"-", 
+            FractionBox[
+             RowBox[{"d", "-", 
+              SqrtBox[
+               RowBox[{"d", 
+                RowBox[{"(", 
+                 RowBox[{"d", "+", 
+                  RowBox[{"em", "[", "n", "]"}]}], ")"}]}]]}], 
+             RowBox[{"em", "[", "n", "]"}]]}], "]"}]}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"eh", "[", "v_", "]"}], ":=", 
+        RowBox[{
+         RowBox[{"-", "d"}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"v", "+", "0.5"}], ")"}], "*", "\[HBar]", "*", 
+          SqrtBox[
+           FractionBox["k", "m"]]}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R3", "[", "v_", "]"}], ":=", 
+        RowBox[{"r", "-", 
+         SqrtBox[
+          FractionBox[
+           RowBox[{"2", "*", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"eh", "[", "v", "]"}], "+", "d"}], ")"}]}], "k"]]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R4", "[", "v_", "]"}], ":=", 
+        RowBox[{"r", "+", 
+         SqrtBox[
+          FractionBox[
+           RowBox[{"2", "*", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"eh", "[", "v", "]"}], "+", "d"}], ")"}]}], "k"]]}]}], 
+       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"plots", "[", "R_", "]"}], ":=", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Vm", "[", "R", "]"}], ",", 
+             RowBox[{"Vh", "[", "R", "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"R", ",", "0", ",", 
+             RowBox[{"3", "r"}]}], "}"}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "1.1"}], "d"}], ",", 
+              RowBox[{"d", "/", "2"}]}], "}"}]}], ",", 
+           RowBox[{"Frame", "->", "True"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", "Red"}], "}"}]}], ",", 
+           RowBox[{"FrameLabel", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<r(m)\>\"", ",", "Italic", ",", "16"}], "]"}], ",", 
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<Energy(J)\>\"", ",", "16"}], "]"}]}], "}"}]}], 
+           ",", 
+           RowBox[{"PlotLabel", "\[Rule]", 
+            RowBox[{"Style", "[", 
+             RowBox[{
+             "\"\<Morse Potential and Harmonic Oscillator Potential\>\"", ",",
+               "\[IndentingNewLine]", "Bold", ",", "Black", ",", "18"}], 
+             "]"}]}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"vibs", "[", "n_", "]"}], ":=", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"Show", "[", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"em", "[", "n", "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"R", ",", 
+                RowBox[{"R1", "[", "n", "]"}], ",", 
+                RowBox[{"R2", "[", "n", "]"}]}], "}"}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Blue"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"n", ",", "0", ",", "nmax"}], "}"}]}], "]"}], "]"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"vibs1", "[", "v_", "]"}], ":=", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"Show", "[", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"eh", "[", "v", "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"R", ",", 
+                RowBox[{"R3", "[", "v", "]"}], ",", 
+                RowBox[{"R4", "[", "v", "]"}]}], "}"}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"v", ",", "0", ",", "nmax"}], "}"}]}], "]"}], "]"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"Show", "[", 
+         RowBox[{
+          RowBox[{"plots", "[", "R", "]"}], ",", 
+          RowBox[{"vibs1", "[", "v", "]"}], ",", 
+          RowBox[{"vibs", "[", "n", "]"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"800", ",", "600"}], "}"}]}]}], "]"}], "]"}]}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"view", "\[Equal]", "2"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\[Alpha]", "=", 
+        RowBox[{"2.655", "*", 
+         SuperscriptBox["10", "10"]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"d", "=", 
+        RowBox[{"5.214", "*", "1.60218", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "19"}]]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"m", "=", 
+        RowBox[{"1.328", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "26"}]]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"\[HBar]", "=", 
+        RowBox[{"1.054", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "34"}]]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"k", "=", 
+        RowBox[{"11.48", "*", 
+         SuperscriptBox["10", "2"]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"r", "=", 
+        RowBox[{"1.208", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "10"}]]}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"\[Omega]", "=", 
+        SqrtBox[
+         RowBox[{"2", "*", "d", "*", 
+          FractionBox[
+           SuperscriptBox["\[Alpha]", "2"], "m"]}]]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"xe", "=", 
+        RowBox[{"\[HBar]", "*", 
+         FractionBox["\[Omega]", 
+          RowBox[{"4", "*", "d"}]]}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Vm", "[", "R_", "]"}], ":=", " ", 
+        RowBox[{
+         RowBox[{"d", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "-", 
+             RowBox[{"Exp", "[", 
+              RowBox[{
+               RowBox[{"-", "\[Alpha]"}], "*", 
+               RowBox[{"(", 
+                RowBox[{"R", "-", "r"}], ")"}]}], "]"}]}], ")"}], "2"]}], "-",
+          "d"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Vh", "[", "R_", "]"}], ":=", " ", 
+        RowBox[{
+         RowBox[{"0.5", "*", "k", "*", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"R", "-", "r"}], ")"}], "2"]}], "-", "d"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"nmax", "=", 
+        RowBox[{"IntegerPart", "[", 
+         FractionBox[
+          SqrtBox[
+           RowBox[{"2", "*", "d", "*", "m"}]], 
+          RowBox[{"\[Alpha]", "*", "\[HBar]"}]], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"em", "[", "n_", "]"}], ":=", 
+        RowBox[{
+         RowBox[{"-", "d"}], "+", 
+         RowBox[{"\[HBar]", "*", "\[Omega]", "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"n", "+", "0.5"}], ")"}], "-", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "xe", ")"}], "*", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"n", "+", "0.5"}], ")"}], "2"]}], ")"}]}], 
+           ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R1", "[", "n_", "]"}], ":=", 
+        RowBox[{"r", "+", 
+         RowBox[{
+          FractionBox["1", "\[Alpha]"], 
+          RowBox[{"Log", "[", 
+           RowBox[{"-", 
+            FractionBox[
+             RowBox[{"d", "+", 
+              SqrtBox[
+               RowBox[{"d", 
+                RowBox[{"(", 
+                 RowBox[{"d", "+", 
+                  RowBox[{"em", "[", "n", "]"}]}], ")"}]}]]}], 
+             RowBox[{"em", "[", "n", "]"}]]}], "]"}]}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R2", "[", "n_", "]"}], ":=", 
+        RowBox[{"r", "+", 
+         RowBox[{
+          FractionBox["1", "\[Alpha]"], 
+          RowBox[{"Log", "[", 
+           RowBox[{"-", 
+            FractionBox[
+             RowBox[{"d", "-", 
+              SqrtBox[
+               RowBox[{"d", 
+                RowBox[{"(", 
+                 RowBox[{"d", "+", 
+                  RowBox[{"em", "[", "n", "]"}]}], ")"}]}]]}], 
+             RowBox[{"em", "[", "n", "]"}]]}], "]"}]}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"eh", "[", "v_", "]"}], ":=", 
+        RowBox[{
+         RowBox[{"-", "d"}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"v", "+", "0.5"}], ")"}], "*", "\[HBar]", "*", 
+          SqrtBox[
+           FractionBox["k", "m"]]}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R3", "[", "v_", "]"}], ":=", 
+        RowBox[{"r", "-", 
+         SqrtBox[
+          FractionBox[
+           RowBox[{"2", "*", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"eh", "[", "v", "]"}], "+", "d"}], ")"}]}], "k"]]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R4", "[", "v_", "]"}], ":=", 
+        RowBox[{"r", "+", 
+         SqrtBox[
+          FractionBox[
+           RowBox[{"2", "*", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"eh", "[", "v", "]"}], "+", "d"}], ")"}]}], "k"]]}]}], 
+       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"plots", "[", "R_", "]"}], ":=", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Vm", "[", "R", "]"}], ",", 
+             RowBox[{"Vh", "[", "R", "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"R", ",", "0", ",", 
+             RowBox[{"3", "r"}]}], "}"}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "1.1"}], "d"}], ",", 
+              RowBox[{"d", "/", "2"}]}], "}"}]}], ",", 
+           RowBox[{"Frame", "->", "True"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", "Red"}], "}"}]}], ",", 
+           RowBox[{"FrameLabel", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<r(m)\>\"", ",", "Italic", ",", "16"}], "]"}], ",", 
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<Energy(J)\>\"", ",", "16"}], "]"}]}], "}"}]}], 
+           ",", 
+           RowBox[{"PlotLabel", "\[Rule]", 
+            RowBox[{"Style", "[", 
+             RowBox[{
+             "\"\<Morse Potential and Harmonic Oscillator Potential\>\"", ",",
+               "\[IndentingNewLine]", "Bold", ",", "Black", ",", "18"}], 
+             "]"}]}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"vibs", "[", "n_", "]"}], ":=", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"Show", "[", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"em", "[", "n", "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"R", ",", 
+                RowBox[{"R1", "[", "n", "]"}], ",", 
+                RowBox[{"R2", "[", "n", "]"}]}], "}"}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Blue"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"n", ",", "0", ",", "nmax"}], "}"}]}], "]"}], "]"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"vibs1", "[", "v_", "]"}], ":=", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"Show", "[", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"eh", "[", "v", "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"R", ",", 
+                RowBox[{"R3", "[", "v", "]"}], ",", 
+                RowBox[{"R4", "[", "v", "]"}]}], "}"}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"v", ",", "0", ",", "nmax"}], "}"}]}], "]"}], "]"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"Show", "[", 
+         RowBox[{
+          RowBox[{"plots", "[", "R", "]"}], ",", 
+          RowBox[{"vibs1", "[", "v", "]"}], ",", 
+          RowBox[{"vibs", "[", "n", "]"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"800", ",", "600"}], "}"}]}]}], "]"}], "]"}]}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"view", "\[Equal]", "3"}], ",", "\[IndentingNewLine]", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"\[Alpha]", "=", 
+        RowBox[{"2.691", "*", 
+         SuperscriptBox["10", "10"]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"d", "=", 
+        RowBox[{"9.905", "*", "1.60218", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "19"}]]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"m", "=", 
+        RowBox[{"1.16", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "26"}]]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"\[HBar]", "=", 
+        RowBox[{"1.054", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "34"}]]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"k", "=", "2287"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"r", "=", 
+        RowBox[{"1.098", "*", 
+         SuperscriptBox["10", 
+          RowBox[{"-", "10"}]]}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"\[Omega]", "=", 
+        SqrtBox[
+         RowBox[{"2", "*", "d", "*", 
+          FractionBox[
+           SuperscriptBox["\[Alpha]", "2"], "m"]}]]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"xe", "=", 
+        RowBox[{"\[HBar]", "*", 
+         FractionBox["\[Omega]", 
+          RowBox[{"4", "*", "d"}]]}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Vm", "[", "R_", "]"}], ":=", " ", 
+        RowBox[{
+         RowBox[{"d", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"1", "-", 
+             RowBox[{"Exp", "[", 
+              RowBox[{
+               RowBox[{"-", "\[Alpha]"}], "*", 
+               RowBox[{"(", 
+                RowBox[{"R", "-", "r"}], ")"}]}], "]"}]}], ")"}], "2"]}], "-",
+          "d"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"Vh", "[", "R_", "]"}], ":=", " ", 
+        RowBox[{
+         RowBox[{"0.5", "*", "k", "*", 
+          SuperscriptBox[
+           RowBox[{"(", 
+            RowBox[{"R", "-", "r"}], ")"}], "2"]}], "-", "d"}]}], ";", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"nmax", "=", 
+        RowBox[{"IntegerPart", "[", 
+         FractionBox[
+          SqrtBox[
+           RowBox[{"2", "*", "d", "*", "m"}]], 
+          RowBox[{"\[Alpha]", "*", "\[HBar]"}]], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"em", "[", "n_", "]"}], ":=", 
+        RowBox[{
+         RowBox[{"-", "d"}], "+", 
+         RowBox[{"\[HBar]", "*", "\[Omega]", "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"(", 
+             RowBox[{"n", "+", "0.5"}], ")"}], "-", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"(", "xe", ")"}], "*", 
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"n", "+", "0.5"}], ")"}], "2"]}], ")"}]}], 
+           ")"}]}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R1", "[", "n_", "]"}], ":=", 
+        RowBox[{"r", "+", 
+         RowBox[{
+          FractionBox["1", "\[Alpha]"], 
+          RowBox[{"Log", "[", 
+           RowBox[{"-", 
+            FractionBox[
+             RowBox[{"d", "+", 
+              SqrtBox[
+               RowBox[{"d", 
+                RowBox[{"(", 
+                 RowBox[{"d", "+", 
+                  RowBox[{"em", "[", "n", "]"}]}], ")"}]}]]}], 
+             RowBox[{"em", "[", "n", "]"}]]}], "]"}]}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R2", "[", "n_", "]"}], ":=", 
+        RowBox[{"r", "+", 
+         RowBox[{
+          FractionBox["1", "\[Alpha]"], 
+          RowBox[{"Log", "[", 
+           RowBox[{"-", 
+            FractionBox[
+             RowBox[{"d", "-", 
+              SqrtBox[
+               RowBox[{"d", 
+                RowBox[{"(", 
+                 RowBox[{"d", "+", 
+                  RowBox[{"em", "[", "n", "]"}]}], ")"}]}]]}], 
+             RowBox[{"em", "[", "n", "]"}]]}], "]"}]}]}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"eh", "[", "v_", "]"}], ":=", 
+        RowBox[{
+         RowBox[{"-", "d"}], "+", 
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{"v", "+", "0.5"}], ")"}], "*", "\[HBar]", "*", 
+          SqrtBox[
+           FractionBox["k", "m"]]}]}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R3", "[", "v_", "]"}], ":=", 
+        RowBox[{"r", "-", 
+         SqrtBox[
+          FractionBox[
+           RowBox[{"2", "*", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"eh", "[", "v", "]"}], "+", "d"}], ")"}]}], "k"]]}]}], 
+       ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"R4", "[", "v_", "]"}], ":=", 
+        RowBox[{"r", "+", 
+         SqrtBox[
+          FractionBox[
+           RowBox[{"2", "*", 
+            RowBox[{"(", 
+             RowBox[{
+              RowBox[{"eh", "[", "v", "]"}], "+", "d"}], ")"}]}], "k"]]}]}], 
+       ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"plots", "[", "R_", "]"}], ":=", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"Plot", "[", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Vm", "[", "R", "]"}], ",", 
+             RowBox[{"Vh", "[", "R", "]"}]}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"R", ",", "0", ",", 
+             RowBox[{"3", "r"}]}], "}"}], ",", 
+           RowBox[{"PlotRange", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"-", "1.1"}], "d"}], ",", 
+              RowBox[{"d", "/", "2"}]}], "}"}]}], ",", 
+           RowBox[{"Frame", "->", "True"}], ",", 
+           RowBox[{"PlotStyle", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{"Blue", ",", "Red"}], "}"}]}], ",", 
+           RowBox[{"FrameLabel", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<r(m)\>\"", ",", "Italic", ",", "16"}], "]"}], ",", 
+              RowBox[{"Style", "[", 
+               RowBox[{"\"\<Energy(J)\>\"", ",", "16"}], "]"}]}], "}"}]}], 
+           ",", 
+           RowBox[{"PlotLabel", "\[Rule]", 
+            RowBox[{"Style", "[", 
+             RowBox[{
+             "\"\<Morse Potential and Harmonic Oscillator Potential\>\"", ",",
+               "\[IndentingNewLine]", "Bold", ",", "Black", ",", "18"}], 
+             "]"}]}]}], "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"vibs", "[", "n_", "]"}], ":=", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"Show", "[", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"em", "[", "n", "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"R", ",", 
+                RowBox[{"R1", "[", "n", "]"}], ",", 
+                RowBox[{"R2", "[", "n", "]"}]}], "}"}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Blue"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"n", ",", "0", ",", "nmax"}], "}"}]}], "]"}], "]"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"vibs1", "[", "v_", "]"}], ":=", 
+        RowBox[{"Graphics", "[", 
+         RowBox[{"Show", "[", 
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"Plot", "[", 
+             RowBox[{
+              RowBox[{"eh", "[", "v", "]"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"R", ",", 
+                RowBox[{"R3", "[", "v", "]"}], ",", 
+                RowBox[{"R4", "[", "v", "]"}]}], "}"}], ",", 
+              RowBox[{"PlotStyle", "\[Rule]", "Red"}]}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"v", ",", "0", ",", "nmax"}], "}"}]}], "]"}], "]"}], 
+         "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"Graphics", "[", 
+        RowBox[{"Show", "[", 
+         RowBox[{
+          RowBox[{"plots", "[", "R", "]"}], ",", 
+          RowBox[{"vibs1", "[", "v", "]"}], ",", 
+          RowBox[{"vibs", "[", "n", "]"}], ",", 
+          RowBox[{"ImageSize", "\[Rule]", 
+           RowBox[{"{", 
+            RowBox[{"800", ",", "600"}], "}"}]}]}], "]"}], "]"}]}]}], 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}], ",", 
+    "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"view", ",", "1", ",", "\"\<Molecules\>\""}], "}"}], ",", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"1", "\[Rule]", "\"\<HCl\>\""}], ",", 
+        RowBox[{
+        "2", "\[Rule]", "\"\<\!\(\*SubscriptBox[\(O\), \(2\)]\)\>\""}], ",", 
+        RowBox[{
+        "3", "\[Rule]", "\"\<\!\(\*SubscriptBox[\(N\), \(2\)]\)\>\""}]}], 
+       "}"}]}], "}"}], ",", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"ControlPlacement", "\[Rule]", "Top"}], ",", 
+    RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+     RowBox[{"{", "view", "}"}]}], ",", 
+    RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "]"}], 
+  "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.7703493975660133`*^9, 3.7703494532494097`*^9}, {
+  3.770349502755378*^9, 3.7703496130269403`*^9}, {3.770349687039391*^9, 
+  3.77034970375758*^9}, {3.770349735012821*^9, 3.770349921280778*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`view$$ = 1, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`view$$], 1, "Molecules"}, {
+      1 -> "HCl", 2 -> "\!\(\*SubscriptBox[\(O\), \(2\)]\)", 3 -> 
+       "\!\(\*SubscriptBox[\(N\), \(2\)]\)"}}}, Typeset`size$$ = {
+    800., {298., 302.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = False, $CellContext`view$119184$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`view$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`view$$, $CellContext`view$119184$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> 
+      Which[$CellContext`view$$ == 
+        1, $CellContext`\[Alpha] = 1.869 10^10; $CellContext`d = 
+         4.618 1.60218 10^(-19); $CellContext`m = 
+         1.627 10^(-27); $CellContext`\[HBar] = 
+         1.054 10^(-34); $CellContext`k = 516.3; $CellContext`r = 
+         1.275 10^(-10); $CellContext`\[Omega] = 
+         Sqrt[2 $CellContext`d ($CellContext`\[Alpha]^2/$CellContext`m)]; \
+$CellContext`xe = $CellContext`\[HBar] ($CellContext`\[Omega]/(
+           4 $CellContext`d)); $CellContext`Vm[
+           Pattern[$CellContext`R, 
+            
+            Blank[]]] := $CellContext`d (1 - 
+             Exp[(-$CellContext`\[Alpha]) ($CellContext`R - \
+$CellContext`r)])^2 - $CellContext`d; $CellContext`Vh[
+           Pattern[$CellContext`R, 
+            Blank[]]] := 
+         0.5 $CellContext`k ($CellContext`R - $CellContext`r)^2 - \
+$CellContext`d; $CellContext`nmax = 
+         IntegerPart[
+          Sqrt[2 $CellContext`d $CellContext`m]/($CellContext`\[Alpha] \
+$CellContext`\[HBar])]; $CellContext`em[
+           Pattern[$CellContext`n, 
+            
+            Blank[]]] := -$CellContext`d + $CellContext`\[HBar] $CellContext`\
+\[Omega] (($CellContext`n + 
+             0.5) - $CellContext`xe ($CellContext`n + 0.5)^2); $CellContext`R1[
+           Pattern[$CellContext`n, 
+            Blank[]]] := $CellContext`r + (1/$CellContext`\[Alpha]) 
+           Log[-(($CellContext`d + 
+               Sqrt[$CellContext`d ($CellContext`d + \
+$CellContext`em[$CellContext`n])])/$CellContext`em[$CellContext`n])]; \
+$CellContext`R2[
+           Pattern[$CellContext`n, 
+            Blank[]]] := $CellContext`r + (1/$CellContext`\[Alpha]) 
+           Log[-(($CellContext`d - 
+               Sqrt[$CellContext`d ($CellContext`d + \
+$CellContext`em[$CellContext`n])])/$CellContext`em[$CellContext`n])]; \
+$CellContext`eh[
+           Pattern[$CellContext`v, 
+            Blank[]]] := -$CellContext`d + ($CellContext`v + 
+            0.5) $CellContext`\[HBar] 
+           Sqrt[$CellContext`k/$CellContext`m]; $CellContext`R3[
+           Pattern[$CellContext`v, 
+            Blank[]]] := $CellContext`r - Sqrt[
+          2 ($CellContext`eh[$CellContext`v] + \
+$CellContext`d)/$CellContext`k]; $CellContext`R4[
+           Pattern[$CellContext`v, 
+            Blank[]]] := $CellContext`r + 
+          Sqrt[2 ($CellContext`eh[$CellContext`v] + \
+$CellContext`d)/$CellContext`k]; $CellContext`plots[
+           Pattern[$CellContext`R, 
+            Blank[]]] := Graphics[
+           Plot[{
+             $CellContext`Vm[$CellContext`R], 
+             $CellContext`Vh[$CellContext`R]}, {$CellContext`R, 0, 
+             3 $CellContext`r}, 
+            PlotRange -> {(-1.1) $CellContext`d, $CellContext`d/2}, Frame -> 
+            True, PlotStyle -> {Blue, Red}, FrameLabel -> {
+              Style["r(m)", Italic, 16], 
+              Style["Energy(J)", 16]}, PlotLabel -> 
+            Style["Morse Potential and Harmonic Oscillator Potential", Bold, 
+              Black, 18]]]; $CellContext`vibs[
+           Pattern[$CellContext`n, 
+            Blank[]]] := Graphics[
+           Show[
+            Table[
+             Plot[
+              $CellContext`em[$CellContext`n], {$CellContext`R, 
+               $CellContext`R1[$CellContext`n], 
+               $CellContext`R2[$CellContext`n]}, PlotStyle -> 
+              Blue], {$CellContext`n, 
+              0, $CellContext`nmax}]]]; $CellContext`vibs1[
+           Pattern[$CellContext`v, 
+            Blank[]]] := Graphics[
+           Show[
+            Table[
+             Plot[
+              $CellContext`eh[$CellContext`v], {$CellContext`R, 
+               $CellContext`R3[$CellContext`v], 
+               $CellContext`R4[$CellContext`v]}, PlotStyle -> 
+              Red], {$CellContext`v, 0, $CellContext`nmax}]]]; Graphics[
+          Show[
+           $CellContext`plots[$CellContext`R], 
+           $CellContext`vibs1[$CellContext`v], 
+           $CellContext`vibs[$CellContext`n], 
+           ImageSize -> {800, 600}]], $CellContext`view$$ == 
+        2, $CellContext`\[Alpha] = 2.655 10^10; $CellContext`d = 
+         5.214 1.60218 10^(-19); $CellContext`m = 
+         1.328 10^(-26); $CellContext`\[HBar] = 
+         1.054 10^(-34); $CellContext`k = 11.48 10^2; $CellContext`r = 
+         1.208 10^(-10); $CellContext`\[Omega] = 
+         Sqrt[2 $CellContext`d ($CellContext`\[Alpha]^2/$CellContext`m)]; \
+$CellContext`xe = $CellContext`\[HBar] ($CellContext`\[Omega]/(
+           4 $CellContext`d)); $CellContext`Vm[
+           Pattern[$CellContext`R, 
+            
+            Blank[]]] := $CellContext`d (1 - 
+             Exp[(-$CellContext`\[Alpha]) ($CellContext`R - \
+$CellContext`r)])^2 - $CellContext`d; $CellContext`Vh[
+           Pattern[$CellContext`R, 
+            Blank[]]] := 
+         0.5 $CellContext`k ($CellContext`R - $CellContext`r)^2 - \
+$CellContext`d; $CellContext`nmax = 
+         IntegerPart[
+          Sqrt[2 $CellContext`d $CellContext`m]/($CellContext`\[Alpha] \
+$CellContext`\[HBar])]; $CellContext`em[
+           Pattern[$CellContext`n, 
+            
+            Blank[]]] := -$CellContext`d + $CellContext`\[HBar] $CellContext`\
+\[Omega] (($CellContext`n + 
+             0.5) - $CellContext`xe ($CellContext`n + 0.5)^2); $CellContext`R1[
+           Pattern[$CellContext`n, 
+            Blank[]]] := $CellContext`r + (1/$CellContext`\[Alpha]) 
+           Log[-(($CellContext`d + 
+               Sqrt[$CellContext`d ($CellContext`d + \
+$CellContext`em[$CellContext`n])])/$CellContext`em[$CellContext`n])]; \
+$CellContext`R2[
+           Pattern[$CellContext`n, 
+            Blank[]]] := $CellContext`r + (1/$CellContext`\[Alpha]) 
+           Log[-(($CellContext`d - 
+               Sqrt[$CellContext`d ($CellContext`d + \
+$CellContext`em[$CellContext`n])])/$CellContext`em[$CellContext`n])]; \
+$CellContext`eh[
+           Pattern[$CellContext`v, 
+            Blank[]]] := -$CellContext`d + ($CellContext`v + 
+            0.5) $CellContext`\[HBar] 
+           Sqrt[$CellContext`k/$CellContext`m]; $CellContext`R3[
+           Pattern[$CellContext`v, 
+            Blank[]]] := $CellContext`r - Sqrt[
+          2 ($CellContext`eh[$CellContext`v] + \
+$CellContext`d)/$CellContext`k]; $CellContext`R4[
+           Pattern[$CellContext`v, 
+            Blank[]]] := $CellContext`r + 
+          Sqrt[2 ($CellContext`eh[$CellContext`v] + \
+$CellContext`d)/$CellContext`k]; $CellContext`plots[
+           Pattern[$CellContext`R, 
+            Blank[]]] := Graphics[
+           Plot[{
+             $CellContext`Vm[$CellContext`R], 
+             $CellContext`Vh[$CellContext`R]}, {$CellContext`R, 0, 
+             3 $CellContext`r}, 
+            PlotRange -> {(-1.1) $CellContext`d, $CellContext`d/2}, Frame -> 
+            True, PlotStyle -> {Blue, Red}, FrameLabel -> {
+              Style["r(m)", Italic, 16], 
+              Style["Energy(J)", 16]}, PlotLabel -> 
+            Style["Morse Potential and Harmonic Oscillator Potential", Bold, 
+              Black, 18]]]; $CellContext`vibs[
+           Pattern[$CellContext`n, 
+            Blank[]]] := Graphics[
+           Show[
+            Table[
+             Plot[
+              $CellContext`em[$CellContext`n], {$CellContext`R, 
+               $CellContext`R1[$CellContext`n], 
+               $CellContext`R2[$CellContext`n]}, PlotStyle -> 
+              Blue], {$CellContext`n, 
+              0, $CellContext`nmax}]]]; $CellContext`vibs1[
+           Pattern[$CellContext`v, 
+            Blank[]]] := Graphics[
+           Show[
+            Table[
+             Plot[
+              $CellContext`eh[$CellContext`v], {$CellContext`R, 
+               $CellContext`R3[$CellContext`v], 
+               $CellContext`R4[$CellContext`v]}, PlotStyle -> 
+              Red], {$CellContext`v, 0, $CellContext`nmax}]]]; Graphics[
+          Show[
+           $CellContext`plots[$CellContext`R], 
+           $CellContext`vibs1[$CellContext`v], 
+           $CellContext`vibs[$CellContext`n], 
+           ImageSize -> {800, 600}]], $CellContext`view$$ == 
+        3, $CellContext`\[Alpha] = 2.691 10^10; $CellContext`d = 
+         9.905 1.60218 10^(-19); $CellContext`m = 
+         1.16 10^(-26); $CellContext`\[HBar] = 1.054 10^(-34); $CellContext`k = 
+         2287; $CellContext`r = 1.098 10^(-10); $CellContext`\[Omega] = 
+         Sqrt[2 $CellContext`d ($CellContext`\[Alpha]^2/$CellContext`m)]; \
+$CellContext`xe = $CellContext`\[HBar] ($CellContext`\[Omega]/(
+           4 $CellContext`d)); $CellContext`Vm[
+           Pattern[$CellContext`R, 
+            
+            Blank[]]] := $CellContext`d (1 - 
+             Exp[(-$CellContext`\[Alpha]) ($CellContext`R - \
+$CellContext`r)])^2 - $CellContext`d; $CellContext`Vh[
+           Pattern[$CellContext`R, 
+            Blank[]]] := 
+         0.5 $CellContext`k ($CellContext`R - $CellContext`r)^2 - \
+$CellContext`d; $CellContext`nmax = 
+         IntegerPart[
+          Sqrt[2 $CellContext`d $CellContext`m]/($CellContext`\[Alpha] \
+$CellContext`\[HBar])]; $CellContext`em[
+           Pattern[$CellContext`n, 
+            
+            Blank[]]] := -$CellContext`d + $CellContext`\[HBar] $CellContext`\
+\[Omega] (($CellContext`n + 
+             0.5) - $CellContext`xe ($CellContext`n + 0.5)^2); $CellContext`R1[
+           Pattern[$CellContext`n, 
+            Blank[]]] := $CellContext`r + (1/$CellContext`\[Alpha]) 
+           Log[-(($CellContext`d + 
+               Sqrt[$CellContext`d ($CellContext`d + \
+$CellContext`em[$CellContext`n])])/$CellContext`em[$CellContext`n])]; \
+$CellContext`R2[
+           Pattern[$CellContext`n, 
+            Blank[]]] := $CellContext`r + (1/$CellContext`\[Alpha]) 
+           Log[-(($CellContext`d - 
+               Sqrt[$CellContext`d ($CellContext`d + \
+$CellContext`em[$CellContext`n])])/$CellContext`em[$CellContext`n])]; \
+$CellContext`eh[
+           Pattern[$CellContext`v, 
+            Blank[]]] := -$CellContext`d + ($CellContext`v + 
+            0.5) $CellContext`\[HBar] 
+           Sqrt[$CellContext`k/$CellContext`m]; $CellContext`R3[
+           Pattern[$CellContext`v, 
+            Blank[]]] := $CellContext`r - Sqrt[
+          2 ($CellContext`eh[$CellContext`v] + \
+$CellContext`d)/$CellContext`k]; $CellContext`R4[
+           Pattern[$CellContext`v, 
+            Blank[]]] := $CellContext`r + 
+          Sqrt[2 ($CellContext`eh[$CellContext`v] + \
+$CellContext`d)/$CellContext`k]; $CellContext`plots[
+           Pattern[$CellContext`R, 
+            Blank[]]] := Graphics[
+           Plot[{
+             $CellContext`Vm[$CellContext`R], 
+             $CellContext`Vh[$CellContext`R]}, {$CellContext`R, 0, 
+             3 $CellContext`r}, 
+            PlotRange -> {(-1.1) $CellContext`d, $CellContext`d/2}, Frame -> 
+            True, PlotStyle -> {Blue, Red}, FrameLabel -> {
+              Style["r(m)", Italic, 16], 
+              Style["Energy(J)", 16]}, PlotLabel -> 
+            Style["Morse Potential and Harmonic Oscillator Potential", Bold, 
+              Black, 18]]]; $CellContext`vibs[
+           Pattern[$CellContext`n, 
+            Blank[]]] := Graphics[
+           Show[
+            Table[
+             Plot[
+              $CellContext`em[$CellContext`n], {$CellContext`R, 
+               $CellContext`R1[$CellContext`n], 
+               $CellContext`R2[$CellContext`n]}, PlotStyle -> 
+              Blue], {$CellContext`n, 
+              0, $CellContext`nmax}]]]; $CellContext`vibs1[
+           Pattern[$CellContext`v, 
+            Blank[]]] := Graphics[
+           Show[
+            Table[
+             Plot[
+              $CellContext`eh[$CellContext`v], {$CellContext`R, 
+               $CellContext`R3[$CellContext`v], 
+               $CellContext`R4[$CellContext`v]}, PlotStyle -> 
+              Red], {$CellContext`v, 0, $CellContext`nmax}]]]; Graphics[
+          Show[
+           $CellContext`plots[$CellContext`R], 
+           $CellContext`vibs1[$CellContext`v], 
+           $CellContext`vibs[$CellContext`n], ImageSize -> {800, 600}]]], 
+      "Specifications" :> {
+       Delimiter, {{$CellContext`view$$, 1, "Molecules"}, {
+         1 -> "HCl", 2 -> "\!\(\*SubscriptBox[\(O\), \(2\)]\)", 3 -> 
+          "\!\(\*SubscriptBox[\(N\), \(2\)]\)"}}}, 
+      "Options" :> {
+       ControlPlacement -> Top, TrackedSymbols :> {$CellContext`view$$}}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{845., {341., 346.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`\[Alpha] = 
+       2.6549999999999996`*^10, $CellContext`d = 
+       8.35376652*^-19, $CellContext`m = 1.328*^-26, $CellContext`\[HBar] = 
+       1.0540000000000001`*^-34, $CellContext`k = 1148., $CellContext`r = 
+       1.208*^-10, $CellContext`\[Omega] = 
+       2.9779791462885306`*^14, $CellContext`xe = 
+       0.009393337761695403, $CellContext`Vm[
+         Pattern[$CellContext`R, 
+          
+          Blank[]]] := $CellContext`d (1 - 
+           Exp[(-$CellContext`\[Alpha]) ($CellContext`R - $CellContext`r)])^2 - \
+$CellContext`d, $CellContext`Vh[
+         Pattern[$CellContext`R, 
+          Blank[]]] := 
+       0.5 $CellContext`k ($CellContext`R - $CellContext`r)^2 - \
+$CellContext`d, $CellContext`nmax = 53, $CellContext`em[
+         Pattern[$CellContext`n, 
+          
+          Blank[]]] := -$CellContext`d + $CellContext`\[HBar] $CellContext`\
+\[Omega] (($CellContext`n + 
+           0.5) - $CellContext`xe ($CellContext`n + 0.5)^2), $CellContext`R1[
+         Pattern[$CellContext`n, 
+          Blank[]]] := $CellContext`r + (1/$CellContext`\[Alpha]) 
+         Log[-(($CellContext`d + 
+             Sqrt[$CellContext`d ($CellContext`d + \
+$CellContext`em[$CellContext`n])])/$CellContext`em[$CellContext`n])], \
+$CellContext`R2[
+         Pattern[$CellContext`n, 
+          Blank[]]] := $CellContext`r + (1/$CellContext`\[Alpha]) 
+         Log[-(($CellContext`d - 
+             Sqrt[$CellContext`d ($CellContext`d + \
+$CellContext`em[$CellContext`n])])/$CellContext`em[$CellContext`n])], \
+$CellContext`eh[
+         Pattern[$CellContext`v, 
+          Blank[]]] := -$CellContext`d + ($CellContext`v + 
+          0.5) $CellContext`\[HBar] 
+         Sqrt[$CellContext`k/$CellContext`m], $CellContext`R3[
+         Pattern[$CellContext`v, 
+          Blank[]]] := $CellContext`r - 
+        Sqrt[(2 ($CellContext`eh[$CellContext`v] + \
+$CellContext`d))/$CellContext`k], $CellContext`R4[
+         Pattern[$CellContext`v, 
+          Blank[]]] := $CellContext`r + 
+        Sqrt[(2 ($CellContext`eh[$CellContext`v] + \
+$CellContext`d))/$CellContext`k], $CellContext`plots[
+         Pattern[$CellContext`R, 
+          Blank[]]] := Graphics[
+         Plot[{
+           $CellContext`Vm[$CellContext`R], 
+           $CellContext`Vh[$CellContext`R]}, {$CellContext`R, 0, 
+           3 $CellContext`r}, 
+          PlotRange -> {(-1.1) $CellContext`d, $CellContext`d/2}, Frame -> 
+          True, PlotStyle -> {Blue, Red}, FrameLabel -> {
+            Style["r(m)", Italic, 16], 
+            Style["Energy(J)", 16]}, PlotLabel -> 
+          Style["Morse Potential and Harmonic Oscillator Potential", Bold, 
+            Black, 18]]], 
+       Attributes[PlotRange] = {ReadProtected}, $CellContext`vibs[
+         Pattern[$CellContext`n, 
+          Blank[]]] := Graphics[
+         Show[
+          Table[
+           Plot[
+            $CellContext`em[$CellContext`n], {$CellContext`R, 
+             $CellContext`R1[$CellContext`n], 
+             $CellContext`R2[$CellContext`n]}, PlotStyle -> 
+            Blue], {$CellContext`n, 
+            0, $CellContext`nmax}]]], $CellContext`vibs1[
+         Pattern[$CellContext`v, 
+          Blank[]]] := Graphics[
+         Show[
+          Table[
+           Plot[
+            $CellContext`eh[$CellContext`v], {$CellContext`R, 
+             $CellContext`R3[$CellContext`v], 
+             $CellContext`R4[$CellContext`v]}, PlotStyle -> 
+            Red], {$CellContext`v, 0, $CellContext`nmax}]]]}; 
+     Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.770349707047387*^9, 3.7703497517386093`*^9, 
+  3.770349972741358*^9}]
+}, Open  ]]
+},
+WindowSize->{1154, 796},
+WindowMargins->{{69, Automatic}, {0, Automatic}},
+DockedCells->FEPrivate`FrontEndResource[
+ "NotebookTemplatingExpressions", "AuthoringDockedCell"],
+TaggingRules->{"NotebookTemplateVersion" -> 1., "NotebookTemplate" -> True},
+CellContext->Notebook,
+ShowCellTags->True,
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 29, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 26533, 696, 2878, "Input"],
+Cell[27116, 720, 17332, 372, 704, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

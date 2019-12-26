@@ -1,0 +1,260 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     10165,        250]
+NotebookOptionsPosition[      9618,        228]
+NotebookOutlinePosition[     10191,        249]
+CellTagsIndexPosition[     10148,        246]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"Manipulate", "[", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Which", "[", 
+    RowBox[{
+     RowBox[{"view", "\[Equal]", "1"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"Plot3D", "[", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"Abs", "[", 
+          RowBox[{
+           SqrtBox["4"], 
+           RowBox[{"Sin", "[", 
+            RowBox[{"nx", "*", "\[Pi]", "*", "x"}], "]"}], 
+           RowBox[{"Sin", "[", 
+            RowBox[{"ny", "*", "\[Pi]", "*", "y"}], "]"}]}], "]"}], "2"], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"y", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"AxesLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<X\>\"", ",", "Bold", ",", "18"}], "]"}], ",", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Y\>\"", ",", "Bold", ",", "18"}], "]"}], ",", 
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<|\[Psi](x,y)\!\(\*SuperscriptBox[\(|\), \(2\)]\)\>\"", ",", 
+             "Bold", ",", "18"}], "]"}]}], "}"}]}], ",", 
+        RowBox[{"ImageSize", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{"600", ",", "500"}], "}"}]}]}], "]"}], "]"}], ",", 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"view", "\[Equal]", "2"}], ",", "\[IndentingNewLine]", 
+     RowBox[{"Graphics", "[", 
+      RowBox[{"ContourPlot3D", "[", 
+       RowBox[{
+        SuperscriptBox[
+         RowBox[{"Abs", "[", 
+          RowBox[{
+           SqrtBox["8"], 
+           RowBox[{"Sin", "[", 
+            RowBox[{"nx", "*", "\[Pi]", "*", "x"}], "]"}], 
+           RowBox[{"Sin", "[", 
+            RowBox[{"ny", "*", "\[Pi]", "*", "y"}], "]"}], 
+           RowBox[{"Sin", "[", 
+            RowBox[{"nz", "*", "\[Pi]", "*", "z"}], "]"}]}], "]"}], "2"], ",", 
+        RowBox[{"{", 
+         RowBox[{"x", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"y", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"z", ",", "0", ",", "1"}], "}"}], ",", 
+        RowBox[{"AxesLabel", "\[Rule]", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<X\>\"", ",", "Bold", ",", "18"}], "]"}], ",", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Y\>\"", ",", "Bold", ",", "18"}], "]"}], ",", 
+           RowBox[{"Style", "[", 
+            RowBox[{"\"\<Z\>\"", ",", "Bold", ",", "18"}], "]"}]}], "}"}]}]}],
+        "]"}], "]"}]}], "\[IndentingNewLine]", "\[IndentingNewLine]", "]"}], 
+   ",", "\[IndentingNewLine]", "Delimiter", ",", "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"view", ",", "1", ",", "\"\<view\>\""}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<2D Box\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<3D Box\>\""}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "nx", ",", "1", ",", "\"\<\!\(\*SubscriptBox[\(n\), \(x\)]\)\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<1\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<2\>\""}], ",", 
+       RowBox[{"3", "\[Rule]", "\"\<3\>\""}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "ny", ",", "1", ",", "\"\<\!\(\*SubscriptBox[\(n\), \(y\)]\)\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<1\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<2\>\""}], ",", 
+       RowBox[{"3", "\[Rule]", "\"\<3\>\""}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "nz", ",", "1", ",", "\"\<\!\(\*SubscriptBox[\(n\), \(z\)]\)\>\""}], 
+      "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"1", "\[Rule]", "\"\<1\>\""}], ",", 
+       RowBox[{"2", "\[Rule]", "\"\<2\>\""}], ",", 
+       RowBox[{"3", "\[Rule]", "\"\<3\>\""}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"ControlPlacement", "\[Rule]", "Left"}], ",", 
+   RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+    RowBox[{"{", 
+     RowBox[{"nx", ",", "ny", ",", "nz", ",", "view"}], "}"}]}], ",", 
+   RowBox[{"SaveDefinitions", "\[Rule]", "True"}]}], "\[IndentingNewLine]", 
+  "\[IndentingNewLine]", "]"}]], "Input",
+ CellChangeTimes->{{3.770358564735353*^9, 3.7703586431883993`*^9}, {
+   3.770358673196583*^9, 3.770358686000169*^9}, {3.77035878160395*^9, 
+   3.770358868118135*^9}, 3.77035894915596*^9, {3.770359040781032*^9, 
+   3.770359136421254*^9}, {3.770359288236431*^9, 3.770359324773614*^9}, {
+   3.770359360035035*^9, 3.770359376674294*^9}, {3.77035991828395*^9, 
+   3.7703599824125633`*^9}, {3.770360068285412*^9, 3.770360189931965*^9}, {
+   3.770360288458263*^9, 3.770360334658258*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`nx$$ = 1, $CellContext`ny$$ = 
+    1, $CellContext`nz$$ = 1, $CellContext`view$$ = 2, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`view$$], 1, "view"}, {
+      1 -> "2D Box", 2 -> "3D Box"}}, {{
+       Hold[$CellContext`nx$$], 1, "\!\(\*SubscriptBox[\(n\), \(x\)]\)"}, {
+      1 -> "1", 2 -> "2", 3 -> "3"}}, {{
+       Hold[$CellContext`ny$$], 1, "\!\(\*SubscriptBox[\(n\), \(y\)]\)"}, {
+      1 -> "1", 2 -> "2", 3 -> "3"}}, {{
+       Hold[$CellContext`nz$$], 1, "\!\(\*SubscriptBox[\(n\), \(z\)]\)"}, {
+      1 -> "1", 2 -> "2", 3 -> "3"}}}, Typeset`size$$ = {600., {248., 252.}}, 
+    Typeset`update$$ = 0, Typeset`initDone$$, Typeset`skipInitDone$$ = 
+    True, $CellContext`view$164161$$ = False, $CellContext`nx$164162$$ = 
+    False, $CellContext`ny$164163$$ = False, $CellContext`nz$164164$$ = 
+    False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`nx$$ = 1, $CellContext`ny$$ = 
+        1, $CellContext`nz$$ = 1, $CellContext`view$$ = 1}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`view$$, $CellContext`view$164161$$, False], 
+        Hold[$CellContext`nx$$, $CellContext`nx$164162$$, False], 
+        Hold[$CellContext`ny$$, $CellContext`ny$164163$$, False], 
+        Hold[$CellContext`nz$$, $CellContext`nz$164164$$, False]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> Which[$CellContext`view$$ == 1, 
+        Graphics[
+         Plot3D[
+         Abs[Sqrt[4] Sin[$CellContext`nx$$ Pi $CellContext`x] 
+            Sin[$CellContext`ny$$ Pi $CellContext`y]]^2, {$CellContext`x, 0, 
+           1}, {$CellContext`y, 0, 1}, AxesLabel -> {
+            Style["X", Bold, 18], 
+            Style["Y", Bold, 18], 
+            Style[
+            "|\[Psi](x,y)\!\(\*SuperscriptBox[\(|\), \(2\)]\)", Bold, 18]}, 
+          ImageSize -> {600, 500}]], $CellContext`view$$ == 2, 
+        Graphics[
+         ContourPlot3D[
+         Abs[Sqrt[8] Sin[$CellContext`nx$$ Pi $CellContext`x] 
+            Sin[$CellContext`ny$$ Pi $CellContext`y] 
+            Sin[$CellContext`nz$$ Pi $CellContext`z]]^2, {$CellContext`x, 0, 
+           1}, {$CellContext`y, 0, 1}, {$CellContext`z, 0, 1}, AxesLabel -> {
+            Style["X", Bold, 18], 
+            Style["Y", Bold, 18], 
+            Style["Z", Bold, 18]}]]], 
+      "Specifications" :> {
+       Delimiter, {{$CellContext`view$$, 1, "view"}, {
+         1 -> "2D Box", 2 -> "3D Box"}}, {{$CellContext`nx$$, 1, 
+          "\!\(\*SubscriptBox[\(n\), \(x\)]\)"}, {
+         1 -> "1", 2 -> "2", 3 -> "3"}}, {{$CellContext`ny$$, 1, 
+          "\!\(\*SubscriptBox[\(n\), \(y\)]\)"}, {
+         1 -> "1", 2 -> "2", 3 -> "3"}}, {{$CellContext`nz$$, 1, 
+          "\!\(\*SubscriptBox[\(n\), \(z\)]\)"}, {
+         1 -> "1", 2 -> "2", 3 -> "3"}}}, 
+      "Options" :> {
+       ControlPlacement -> Left, 
+        TrackedSymbols :> {$CellContext`nx$$, $CellContext`ny$$, \
+$CellContext`nz$$, $CellContext`view$$}}, "DefaultOptions" :> {}],
+     ImageSizeCache->{761., {276., 281.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{3.770360336274581*^9}]
+}, Open  ]]
+},
+WindowSize->{1134, 788},
+WindowMargins->{{Automatic, 66}, {0, Automatic}},
+DockedCells->FEPrivate`FrontEndResource[
+ "NotebookTemplatingExpressions", "AuthoringDockedCell"],
+TaggingRules->{"NotebookTemplateVersion" -> 1., "NotebookTemplate" -> True},
+CellContext->Notebook,
+ShowCellTags->True,
+FrontEndVersion->"10.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (July 29, \
+2015)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 5117, 124, 481, "Input"],
+Cell[5700, 148, 3902, 77, 608, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+
